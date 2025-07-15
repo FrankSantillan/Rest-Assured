@@ -20,6 +20,7 @@ jobs:
 
       - name: Create config.properties
         run: |
+          mkdir -p src/test/resources
           echo "ENDPOINT_API=${{ secrets.ENDPOINT_API }}" >> src/test/resources/config.properties
           echo "TOKEN=${{ secrets.TOKEN }}" >> src/test/resources/config.properties
 
