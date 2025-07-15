@@ -1,0 +1,35 @@
+name: Run Tests on Push and Daily Schedule
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+  schedule:
+    # 10:30 AM CST = 16:30 UTC
+    - cron: '30 16 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build and Run Tests with Maven
+        run: mvn clean verify
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: target/surefire-reports/
