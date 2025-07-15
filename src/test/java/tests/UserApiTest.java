@@ -23,7 +23,7 @@ public class UserApiTest extends BaseTest {
 
     @BeforeAll
     public void loadToken() {
-        token = ConfigReader.get("GITHUB_TOKEN");
+        token = ConfigReader.get("TOKEN");
     }
 
     @Test

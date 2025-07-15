@@ -17,6 +17,11 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+      - name: Create config.properties
+        run: |
+            echo "ENDPOINT_API=${{ secrets.ENDPOINT_API }}" >> src/test/resources/config.properties
+            echo "OTHER_PROPERTY=${{ secrets.TOKEN }}" >> src/test/resources/config.properties
+
 
       - name: Set up Java 17
         uses: actions/setup-java@v4
