@@ -1,0 +1,14 @@
+services:
+  tests:
+    build: .
+    volumes:
+      # Only mount the Allure results directory to avoid Maven clean issues
+      - ./target/allure-results:/app/target/allure-results
+    command: mvn test
+
+  allure:
+    image: frankescobar/allure-docker-service
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./target/allure-results:/app/allure-results
