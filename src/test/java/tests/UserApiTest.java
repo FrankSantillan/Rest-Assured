@@ -46,7 +46,8 @@ public class UserApiTest extends BaseTest {
                 .body("location",startsWithIgnoringCase("COLIMA"))
                 .body("name",nullValue())
                 .body("created_at",notNullValue())
-                .body("public_repos",greaterThan(0));
+                .body("public_repos",greaterThan(0))
+                .body("two_factor_authentication",is(false));
     }
 
 
