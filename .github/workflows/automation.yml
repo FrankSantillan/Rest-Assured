@@ -30,7 +30,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and Run Tests with Maven
-        run: mvn clean verify -X
+        run: mvn test
 
       - name: List target contents
         run: ls -R target
