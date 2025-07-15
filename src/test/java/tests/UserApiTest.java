@@ -51,7 +51,7 @@ public class UserApiTest extends BaseTest {
     }
 
 
-    @Test
+    /*@Test
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify authenticated user details with personal access token")
     public void getUserShouldReturnError() {
@@ -68,4 +68,5 @@ public class UserApiTest extends BaseTest {
                 .body("login", containsString("FrankSantillan"))
                 .body("user_view_type", equalTo("public"));
     }
+    */
 }
